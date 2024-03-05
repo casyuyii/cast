@@ -1,5 +1,5 @@
 <template>
   <div>
-    <Button label="Check" icon="pi pi-check" />
+    <NuxtPage />
   </div>
 </template>
