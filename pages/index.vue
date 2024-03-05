@@ -1,5 +1,5 @@
 <template>
-  <div class="card flex justify-content-center">
+  <div>
     <Textarea v-model="value" class="w-full" />
   </div>
 </template>
