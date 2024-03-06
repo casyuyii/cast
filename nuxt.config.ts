@@ -16,6 +16,5 @@ export default defineNuxtConfig({
     },
     importPT: { from: path.resolve(__dirname, "./presets/lara/") },
   },
-  // css: ["primevue/resources/themes/aura-light-green/theme.css"],
   css: ["~/assets/css/tailwind.css"],
 });
