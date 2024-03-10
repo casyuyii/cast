@@ -7,15 +7,21 @@
 
 <script setup>
 import { ref } from "vue";
+import { ShareText } from "~/api/api";
 
 const value = ref("");
 const share = ref(false);
 
 const shareText = () => {
   share.value = true;
-  console.log(value.value);
-  setTimeout(() => {
-    share.value = false;
-  }, 2000);
+  ShareText(value.value)
+    .then((res) => {
+      console.log(res);
+      share.value = false;
+    })
+    .catch((err) => {
+      console.log(err);
+      share.value = false;
+    });
 };
 </script>
