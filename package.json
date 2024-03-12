@@ -10,6 +10,8 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@types/crypto-js": "^4.2.2",
+    "crypto-js": "^4.2.0",
     "nuxt": "^3.10.3",
     "primevue": "^3.49.1",
     "vue": "^3.4.19",
