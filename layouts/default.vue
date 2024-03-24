@@ -8,6 +8,7 @@
 
 <script setup>
 import { ref } from "vue"
+import "primeicons/primeicons.css"
 
 const items = ref([
   {
