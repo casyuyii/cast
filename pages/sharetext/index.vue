@@ -11,7 +11,12 @@
       <small id="secretKey-help"> Secret Key(Optional) </small>
     </div>
 
-    <Button label="Share" :loading="shareLoding" @click="shareText" class="" />
+    <Button
+      label="Share"
+      :loading="shareLoding"
+      @click="shareText"
+      icon="pi pi-check"
+    />
 
     <transition-group name="p-message">
       <Message v-for="msg of messages" :key="msg.id" :severity="msg.severity">{{
