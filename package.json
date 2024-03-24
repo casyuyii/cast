@@ -25,8 +25,6 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-vue": "^9.22.0",
     "nuxt-primevue": "^0.3.1",
-    "postcss": "^8.4.35",
-    "prettier": "3.2.5",
-    "tailwindcss": "^3.4.1"
+    "prettier": "3.2.5"
   }
 }
