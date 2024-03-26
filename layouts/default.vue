@@ -1,5 +1,5 @@
 <template>
-  <slot class="" />
+  <slot />
 </template>
 
 <script setup></script>
