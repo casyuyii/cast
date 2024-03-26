@@ -4,4 +4,6 @@
   </NuxtLayout>
 </template>
 
-<script setup></script>
+<script setup>
+import "primeicons/primeicons.css"
+</script>

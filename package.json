@@ -10,8 +10,6 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@types/crypto-js": "^4.2.2",
-    "crypto-js": "^4.2.0",
     "nuxt": "^3.10.3",
     "primeicons": "^6.0.1",
     "primevue": "^3.49.1",
@@ -19,12 +17,8 @@
     "vue-router": "^4.3.0"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^7.1.1",
-    "@typescript-eslint/parser": "^7.1.1",
-    "autoprefixer": "^10.4.18",
+    "@nuxtjs/eslint-module": "^4.1.0",
     "eslint": "^8.57.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-vue": "^9.22.0",
     "nuxt-primevue": "^0.3.1",
     "prettier": "3.2.5"
   }
