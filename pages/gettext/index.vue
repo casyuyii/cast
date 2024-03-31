@@ -1,5 +1,5 @@
 <template>
-  <p>Home page</p>
+  <p>Get text</p>
 </template>
 
 <script setup></script>
