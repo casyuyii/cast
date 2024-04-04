@@ -1,0 +1,6 @@
+services:
+  cast:
+    image: cast:latest
+    build: .
+    ports:
+      - "3000:3000"

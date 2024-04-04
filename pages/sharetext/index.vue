@@ -9,7 +9,10 @@
 import { ref } from "vue"
 
 const text = ref("")
-function sharetext() {
-  console.log(text.value)
+async function sharetext() {
+  await useFetch("/api/sharetext", {
+    method: "post",
+    body: { text: text.value },
+  })
 }
 </script>
