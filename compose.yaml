@@ -8,8 +8,8 @@ services:
     image: cast:latest
     build: .
     environment:
-      REDIS_HOST: redis
-      REDIS_PORT: 6379
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
     ports:
       - "3000:3000"
     depends_on:
