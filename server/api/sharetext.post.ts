@@ -1,8 +1,8 @@
 export default defineEventHandler(async (event) => {
-  const boay = await readBody(event)
-  console.log(`get post ${boay}`)
+  const body = await readBody(event)
+  console.log(`get post ${body}`)
 
-  // await useStorage("redis").setItem("boay", boay)
+  await useStorage("redis").setItem("t1", body.text ?? "test string")
 
-  return { boay }
+  return { boay: body }
 })
