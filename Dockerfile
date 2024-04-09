@@ -1,13 +1,17 @@
 FROM node:20-alpine3.19 AS base
 
-FROM base AS build
+FROM base AS deps
+WORKDIR /app
+RUN npm install -g pnpm
+COPY package.json pnpm-lock.yaml ./
+RUN pnpm i -P --frozen-lockfile
+
+FROM deps AS build
 WORKDIR /app
 COPY . .
-RUN npm install -g pnpm
-RUN pnpm i -P
 RUN pnpm build
 
-FROM base
+FROM base AS release
 WORKDIR /app
 COPY --from=build /app/.output .
 EXPOSE 3000
