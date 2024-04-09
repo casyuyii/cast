@@ -14,8 +14,8 @@ export default defineNuxtConfig({
     storage: {
       redis: {
         driver: "redis",
-        host: process.env.REDIS_HOST,
-        port: process.env.REDIS_PORT,
+        host: process.env.REDIS_HOST || "redis",
+        port: process.env.REDIS_PORT || 6379,
       },
     },
   },
