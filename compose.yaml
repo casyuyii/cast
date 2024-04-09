@@ -3,14 +3,20 @@ services:
     image: redis:alpine3.19
     ports:
       - "6379:6379"
+    volumes:
+      - redis-data:/data 
 
   cast:
     image: cast:latest
     build: .
     environment:
-      - REDIS_HOST=redis
-      - REDIS_PORT=6379
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
     ports:
       - "3000:3000"
     depends_on:
       - redis
+
+volumes:
+  redis-data:
+    driver: local
