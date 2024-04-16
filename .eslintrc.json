@@ -4,7 +4,8 @@
     "es2021": true
   },
   "globals": {
-    "useFetch": true
+    "useFetch": true,
+    "useRoute": true
   },
   "extends": [
     "eslint:recommended",

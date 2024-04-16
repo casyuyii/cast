@@ -5,7 +5,8 @@ function generateUniqueId() {
 export default defineEventHandler(async (event) => {
   const body = await readBody(event)
 
-  if (!body.text) {
+  const text = body.text
+  if (!text) {
     throw createError({
       statusCode: 400,
       statusText: "Bad Request(Missing text in body)",
@@ -13,8 +14,7 @@ export default defineEventHandler(async (event) => {
   }
 
   const key = generateUniqueId()
-  console.log("key", key)
-  await useStorage("redis").setItem(key, body.text, { ttl: 360 })
+  await useStorage("redis").setItem(key, text, { ttl: 360 })
 
   return {
     key,
