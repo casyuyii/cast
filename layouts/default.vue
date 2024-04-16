@@ -15,10 +15,10 @@ const items = ref([
     icon: "pi pi-file-edit",
     url: "/sharetext",
   },
-  {
-    label: "GetText",
-    icon: "pi pi-file",
-    url: "/gettext",
-  },
+  // {
+  //   label: "GetText",
+  //   icon: "pi pi-file",
+  //   url: "/gettext",
+  // },
 ])
 </script>

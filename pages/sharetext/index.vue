@@ -20,12 +20,10 @@ async function sharetext() {
 
   if (status.value === "success") {
     shareRsp.value = "success"
-    shareKey.value = data.value.key
+    shareKey.value = `gettext/${data.value.key}`
   } else {
     shareRsp.value = "error"
     shareKey.value = error.value
   }
-
-  console.log(data, status)
 }
 </script>
