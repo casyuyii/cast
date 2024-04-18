@@ -7,8 +7,6 @@
 </template>
 
 <script setup>
-import { ref } from "vue"
-
 const text = ref("")
 const shareRsp = ref("info")
 const shareKey = ref("click share to get key")

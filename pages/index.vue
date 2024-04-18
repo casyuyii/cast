@@ -2,4 +2,7 @@
   <p>Home page</p>
 </template>
 
-<script setup></script>
+<script setup>
+const router = useRouter()
+router.push("/sharetext")
+</script>

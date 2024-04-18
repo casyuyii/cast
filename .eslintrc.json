@@ -5,7 +5,9 @@
   },
   "globals": {
     "useFetch": true,
-    "useRoute": true
+    "useRoute": true,
+    "useRouter": true,
+    "ref": true
   },
   "extends": [
     "eslint:recommended",
