@@ -14,5 +14,5 @@ RUN pnpm build
 FROM base AS release
 WORKDIR /app
 COPY --from=build /app/.output .
-EXPOSE 3000
+EXPOSE 8080
 CMD ["node", "./server/index.mjs"]
