@@ -12,9 +12,9 @@ services:
     environment:
       REDIS_HOST: redis
       REDIS_PORT: 6379
-      NITRO_PORT: 8080
+      NITRO_PORT: 80
     ports:
-      - "8080:8080"
+      - "80:80"
     depends_on:
       - redis
 
