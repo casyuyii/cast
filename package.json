@@ -1,8 +1,7 @@
 {
   "name": "cast",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "test monorepo",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
