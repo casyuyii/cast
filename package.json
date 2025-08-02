@@ -7,7 +7,7 @@
     "server:dev": "pnpm --filter server dev"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "cas",
+  "license": "MIT",
   "packageManager": "pnpm@10.13.1"
 }
