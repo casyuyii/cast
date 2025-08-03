@@ -1,9 +1,15 @@
 "use client";
 
 import React, { useState } from "react";
-import { MailOutlined } from "@ant-design/icons";
+import {
+  ShareAltOutlined,
+  DownloadOutlined,
+  FileTextOutlined,
+  QuestionOutlined,
+} from "@ant-design/icons";
 import type { MenuProps } from "antd";
 import { Layout, Menu } from "antd";
+import { useRouter, usePathname } from "next/navigation";
 
 const { Header } = Layout;
 
@@ -13,26 +19,39 @@ const items: MenuItem[] = [
   {
     label: "Text",
     key: "text",
-    icon: <MailOutlined />,
+    icon: <FileTextOutlined />,
     children: [
       {
-        label: "Share Text",
-        key: "share_text",
+        label: "Share",
+        key: "/text/share",
+        icon: <ShareAltOutlined />,
       },
       {
-        label: "Get Text",
-        key: "get_text",
+        label: "Get",
+        key: "/text/get",
+        icon: <DownloadOutlined />,
       },
     ],
+  },
+  {
+    label: "Test",
+    key: "/test",
+    icon: <QuestionOutlined />,
   },
 ];
 
 const TopMenuBar: React.FC = () => {
-  const [current, setCurrent] = useState("text");
+  const router = useRouter();
+  const pathname = usePathname();
+  const [current, setCurrent] = useState(pathname || "text");
 
   const onClick: MenuProps["onClick"] = (e) => {
-    console.log("click ", e);
     setCurrent(e.key);
+
+    // Navigate to the route if it's a valid path
+    if (e.key.startsWith("/")) {
+      router.push(e.key);
+    }
   };
 
   return (
