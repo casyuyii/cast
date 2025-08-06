@@ -1,8 +1,14 @@
+"use client";
+import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
+
 export default function ShareText() {
   return (
-    <div style={{ padding: "20px" }}>
-      <h1>Share Text</h1>
-      <p>This is the share text page where users can share text content.</p>
+    <div className="p-4 flex flex-col items-end justify-center gap-2">
+      <Textarea className="h-32" placeholder="Enter text to share" />
+      <Button type="submit" variant="outline">
+        Submit
+      </Button>
     </div>
   );
 }

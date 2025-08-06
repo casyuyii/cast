@@ -1,17 +1,14 @@
 "use client";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 
-import { useSearchParams } from "next/navigation";
-
-export default function GetText() {
-  const searchParams = useSearchParams();
-  const text = searchParams.get("text");
-
+export default function ShareText() {
   return (
-    <div style={{ padding: "20px" }}>
-      <h1>Get Text</h1>
-      <p>This is the get text page where users can retrieve text content.</p>
-      <p>{text}</p>
-      <p>{process.env.NEXT_PUBLIC_BACK_END_URL}</p>
+    <div className="p-4 flex w-full max-w-sm items-center gap-2">
+      <Input type="text" placeholder="Enter code to get text" />
+      <Button type="submit" variant="outline">
+        Get
+      </Button>
     </div>
   );
 }
