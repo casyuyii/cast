@@ -6,7 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 
-const GET_TEXT_URL = process.env.NEXT_PUBLIC_BACK_END_API_URL_PREFIX;
+const GET_TEXT_API = process.env.NEXT_PUBLIC_BACK_END_API_URL_PREFIX + "?code=";
 
 export default function ShareText() {
   const searchParams = useSearchParams();
@@ -17,7 +17,7 @@ export default function ShareText() {
   const OnClickGet = () => {
     if (code === "") return;
 
-    fetch(GET_TEXT_URL + `?code=${code}`, {
+    fetch(GET_TEXT_API + code, {
       method: "GET",
     })
       .then((res) => res.json())
