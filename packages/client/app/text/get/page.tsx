@@ -6,8 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 
-const GET_TEXT_API =
-  process.env.NEXT_PUBLIC_BACK_END_API_URL + "/api/text?code=";
+const GET_TEXT_API = process.env.NEXT_PUBLIC_BACK_END_API_URL + "/api/text?code=";
 
 export default function ShareText() {
   const searchParams = useSearchParams();
@@ -34,7 +33,7 @@ export default function ShareText() {
 
   return (
     <div>
-      <div className="p-2 flex w-full items-center gap-2">
+      <div className="flex w-full items-center gap-2 p-2">
         <Textarea
           placeholder="Enter code to get text in the box above, then click get to load the text..."
           className="h-32"
@@ -42,7 +41,7 @@ export default function ShareText() {
           readOnly
         />
       </div>
-      <div className="p-2 flex w-full max-w-sm items-center gap-2">
+      <div className="flex w-full max-w-sm items-center gap-2 p-2">
         <Input
           type="text"
           placeholder="Enter code to get text"
