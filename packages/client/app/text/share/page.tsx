@@ -49,7 +49,7 @@ export default function ShareText() {
   };
 
   return (
-    <div className="p-2 flex flex-col gap-2">
+    <div className="p-2 flex flex-col gap-2 ">
       <div className="flex w-full relative">
         <Textarea
           className="h-32"

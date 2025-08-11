@@ -17,7 +17,7 @@ export default function NavigationMenuDemo() {
         <Button variant="ghost">Home</Button>
       </Link>
 
-      <NavigationMenu viewport={false}>
+      <NavigationMenu viewport={false} className="z-50">
         <NavigationMenuList>
           <NavigationMenuItem>
             <NavigationMenuTrigger>Text</NavigationMenuTrigger>

@@ -34,6 +34,14 @@ export default function ShareText() {
 
   return (
     <div>
+      <div className="p-2 flex w-full items-center gap-2">
+        <Textarea
+          placeholder="Enter code to get text in the box above, then click get to load the text..."
+          className="h-32"
+          value={text}
+          readOnly
+        />
+      </div>
       <div className="p-2 flex w-full max-w-sm items-center gap-2">
         <Input
           type="text"
@@ -44,14 +52,6 @@ export default function ShareText() {
         <Button type="submit" variant="outline" onClick={OnClickGet}>
           Get
         </Button>
-      </div>
-      <div className="p-2 flex w-full items-center gap-2">
-        <Textarea
-          placeholder="Enter code to get text in the box above, then click get to load the text..."
-          className="h-32"
-          value={text}
-          readOnly
-        />
       </div>
     </div>
   );
