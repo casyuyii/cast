@@ -6,7 +6,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 
-const GET_TEXT_API = process.env.NEXT_PUBLIC_BACK_END_API_URL_PREFIX + "?code=";
+const GET_TEXT_API =
+  process.env.NEXT_PUBLIC_BACK_END_API_URL + "/api/text?code=";
 
 export default function ShareText() {
   const searchParams = useSearchParams();
@@ -22,7 +23,12 @@ export default function ShareText() {
     })
       .then((res) => res.json())
       .then((data) => {
-        setText(data.text);
+        if (data.text) {
+          setText(data.text);
+        }
+      })
+      .catch((err) => {
+        console.error("Failed to get text: ", err);
       });
   };
 

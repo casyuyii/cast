@@ -3,10 +3,10 @@ import { Injectable } from '@nestjs/common';
 @Injectable()
 export class TextService {
   getText(code: string) {
-    return `Test ${code}`;
+    return { text: `Test ${code}` };
   }
 
   shareText(text: string) {
-    return text;
+    return { code: text + '123' };
   }
 }

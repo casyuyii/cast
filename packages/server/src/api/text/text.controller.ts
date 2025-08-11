@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Query } from '@nestjs/common';
+import { Body, Controller, Get, Post, Query } from '@nestjs/common';
 import { TextService } from './text.service';
 
 @Controller('api/text')
@@ -12,7 +12,7 @@ export class TextController {
   }
 
   @Post()
-  shareText(@Query('text') text: string) {
+  shareText(@Body('text') text: string) {
     return this.textService.shareText(text);
   }
 }
