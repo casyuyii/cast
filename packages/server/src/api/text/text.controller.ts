@@ -1,5 +1,5 @@
 import { Body, Controller, Get, Post, Query } from '@nestjs/common';
-import { TextService } from './text.service';
+import { TextService } from '@/api/text/text.service';
 
 @Controller('api/text')
 export class TextController {
