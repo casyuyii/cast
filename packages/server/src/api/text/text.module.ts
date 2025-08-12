@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
 import { TextController } from '@/api/text/text.controller';
 import { TextService } from '@/api/text/text.service';
-import { MongoDBService } from '@/lib/mongo.service';
+import { MongoModule } from '@/lib/mongo/mongo.module';
 
 @Module({
-  imports: [],
+  imports: [MongoModule],
   controllers: [TextController],
-  providers: [TextService, MongoDBService],
+  providers: [TextService],
 })
 export class TextModule {}

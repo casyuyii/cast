@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { MongoDBService } from '@/lib/mongo.service';
+import { MongoDBService } from '@/lib/mongo/mongo.service';
 
 @Injectable()
 export class TextService {
