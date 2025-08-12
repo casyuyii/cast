@@ -2,7 +2,7 @@ import { Injectable, OnModuleInit, OnModuleDestroy } from '@nestjs/common';
 import { MongoClient, Db } from 'mongodb';
 
 @Injectable()
-export class MongoDBService implements OnModuleInit, OnModuleDestroy {
+export class MongoService implements OnModuleInit, OnModuleDestroy {
   private client: MongoClient;
   private textDb: Db;
 

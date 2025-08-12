@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
-import { MongoDBService } from '@/lib/mongo/mongo.service';
+import { MongoService } from '@/lib/mongo/mongo.service';
 
 @Module({
-  providers: [MongoDBService],
-  exports: [MongoDBService],
+  providers: [MongoService],
+  exports: [MongoService],
 })
 export class MongoModule {}
