@@ -7,7 +7,6 @@ export class TextController {
 
   @Get()
   getText(@Query('code') code: string) {
-    console.log('getText', code);
     return this.textService.getText(code);
   }
 

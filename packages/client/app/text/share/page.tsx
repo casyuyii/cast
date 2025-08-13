@@ -25,14 +25,16 @@ export default function ShareText() {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.code) {
+        if (data.success && data.code) {
           setText(data.code);
           setShowAlter(true);
           setAlterText(SHARE_TEXT_URL + data.code);
+        } else {
+          console.error("Failed to share text: ", data);
         }
       })
       .catch((err) => {
-        console.error("Failed to share text: ", err);
+        console.error("Failed to share text(unknown error): ", err);
       });
   };
 

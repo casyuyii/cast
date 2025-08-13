@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const GET_TEXT_API = process.env.NEXT_PUBLIC_BACK_END_API_URL + "/api/text?code=";
 
@@ -22,14 +22,20 @@ export default function ShareText() {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.text) {
+        if (data.success && data.text) {
           setText(data.text);
+        } else {
+          console.error("Failed to get text: ", data);
         }
       })
       .catch((err) => {
-        console.error("Failed to get text: ", err);
+        console.error("Failed to get text(unknown error): ", err);
       });
   };
+
+  useEffect(() => {
+    OnClickGet();
+  }, []);
 
   return (
     <div>
