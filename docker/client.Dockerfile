@@ -5,10 +5,11 @@ FROM base AS build
 RUN npm install -g bun
 WORKDIR /app
 COPY . .
-RUN ls -al
-RUN ls -al ./packages
-RUN ls -al ./packages/client
-RUN bun --version
+# RUN ls -al
+# RUN ls -al ./packages
+# RUN ls -al ./packages/client
+# RUN ls -al ./packages/server
+# RUN bun --version
 RUN bun install --frozen-lockfile --filter './packages/client' --production
 RUN bun run client:build
 
