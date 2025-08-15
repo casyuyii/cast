@@ -1,3 +1,11 @@
+# ignore all packages
+./packages/*
+# keep client package
+!./packages/client
+# keep package.json to --frozen-lockfile 
+# the lockfile includes all dependencies, if lack of package.json, the lockfile will be invalid
+!**/package.json
+
 # docker
 ./docker
 
