@@ -1,0 +1,17 @@
+# packages
+# ./packages/*
+# !./packages/client
+# ./packages/client/.next
+
+# docker
+./docker
+
+# deps
+**/README.md
+**/node_modules
+
+# other
+**/.git
+.vscode
+**/.gitignore
+**/.prettierrc

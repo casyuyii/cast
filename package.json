@@ -1,13 +1,18 @@
 {
   "name": "cast",
+  "packageManager": "bun@1.2.2",
+  "private": true,
   "version": "1.0.0",
   "description": "test monorepo",
   "scripts": {
-    "client:dev": "pnpm --filter client dev",
-    "server:dev": "pnpm --filter server dev"
+    "client:dev": "bun --filter client dev",
+    "server:dev": "bun --filter server dev",
+    "client:build": "bun --filter client build"
   },
   "keywords": [],
   "author": "cas",
   "license": "MIT",
-  "packageManager": "pnpm@10.13.1"
+  "workspaces": [
+    "packages/*"
+  ]
 }
