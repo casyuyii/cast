@@ -10,7 +10,6 @@
 ./docker
 
 # deps
-**/README.md
 **/node_modules
 
 # output
@@ -18,6 +17,7 @@
 **/.next
 
 # other
+**/README.md
 **/.git
 **/.vscode
 **/.gitignore
