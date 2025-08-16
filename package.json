@@ -11,8 +11,8 @@
     "client:docker": "docker build -f ./docker/client.Dockerfile -t client .",
     "server:build": "bun --filter server build",
     "server:docker": "docker build -f ./docker/server.Dockerfile -t server .",
-    "docker:up": "docker-compose -f ./docker/compose.yaml up -d",
-    "docker:down": "docker-compose -f ./docker/compose.yaml down"
+    "docker:up": "docker-compose -f ./docker/compose.dev.yaml up -d",
+    "docker:down": "docker-compose -f ./docker/compose.dev.yaml down"
   },
   "keywords": [],
   "author": "cas",
