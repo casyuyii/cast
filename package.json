@@ -10,7 +10,8 @@
     "client:build": "bun --filter client build",
     "client:docker": "docker build -f ./docker/client.Dockerfile -t client .",
     "server:build": "bun --filter server build",
-    "server:docker": "docker build -f ./docker/server.Dockerfile -t server ."
+    "server:docker": "docker build -f ./docker/server.Dockerfile -t server .",
+    "cast:docker": "docker-compose -f ./docker/compose.yaml up -d"
   },
   "keywords": [],
   "author": "cas",
