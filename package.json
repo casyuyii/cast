@@ -7,7 +7,10 @@
   "scripts": {
     "client:dev": "bun --filter client dev",
     "server:dev": "bun --filter server dev",
-    "client:build": "bun --filter client build"
+    "client:build": "bun --filter client build",
+    "client:docker": "docker build -f ./docker/client.Dockerfile -t client .",
+    "server:build": "bun --filter server build",
+    "server:docker": "docker build -f ./docker/server.Dockerfile -t server ."
   },
   "keywords": [],
   "author": "cas",
