@@ -8,6 +8,8 @@
 
 # docker
 ./docker
+# keep env file
+!./docker/env
 
 # deps
 **/node_modules
@@ -22,3 +24,4 @@
 **/.vscode
 **/.gitignore
 **/.prettierrc
+**/.env

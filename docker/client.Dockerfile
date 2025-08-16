@@ -5,6 +5,7 @@ FROM base AS build
 RUN npm install -g bun
 WORKDIR /app
 COPY . .
+COPY ./docker/env/.client.env ./packages/client/.env
 # RUN ls -al
 # RUN ls -al ./packages
 # RUN ls -al ./packages/client

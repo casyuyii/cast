@@ -18,7 +18,7 @@ export class MongoService implements OnModuleInit, OnModuleDestroy {
     await this.client.connect();
     this.textDb = this.client.db('text');
 
-    console.log(`✅ Connected to MongoDB`);
+    console.log(`✅ Connected to MongoDB ${uri}`);
   }
 
   async onModuleDestroy() {

@@ -7,9 +7,9 @@ services:
       dockerfile: ./docker/client.Dockerfile
     ports:
       - "3000:3000"
-    environment:
-      - NEXT_PUBLIC_BACK_END_API_URL=http://server:3100
-      - NEXT_PUBLIC_FRONT_END_URL=http://casyu.me
+    # environment:
+    #   - NEXT_PUBLIC_BACK_END_API_URL=http://server:3100
+    #   - NEXT_PUBLIC_FRONT_END_URL=http://casyu.me
     depends_on:
       - server
 
@@ -17,8 +17,8 @@ services:
     build:
       context: ..
       dockerfile: ./docker/server.Dockerfile
-    ports:
-      - "3100:3100"
+    # ports:
+    #   - "3100:3100"
     environment:
       - MONGO_URI=mongodb://mongodb:27017
     depends_on:
