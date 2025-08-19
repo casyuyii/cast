@@ -2,10 +2,14 @@ FROM node:18-alpine AS base
 
 # build 
 FROM base AS build
+ARG NEXT_PUBLIC_BACK_END_API_URL
+ARG NEXT_PUBLIC_FRONT_END_URL
+ENV NEXT_PUBLIC_BACK_END_API_URL=${NEXT_PUBLIC_BACK_END_API_URL}
+ENV NEXT_PUBLIC_FRONT_END_URL=${NEXT_PUBLIC_FRONT_END_URL}
 RUN npm install -g bun
 WORKDIR /app
 COPY . .
-COPY ./docker/env/.client.env ./packages/client/.env
+# COPY ./docker/env/.client.env ./packages/client/.env
 # RUN ls -al
 # RUN ls -al ./packages
 # RUN ls -al ./packages/client
@@ -21,8 +25,6 @@ COPY --from=build /app/packages/client/.next/standalone ./
 COPY --from=build /app/packages/client/public ./packages/client/public
 COPY --from=build /app/packages/client/.next/static ./packages/client/.next/static
 
-ENV PORT=3000
 ENV HOSTNAME="0.0.0.0"
-EXPOSE 3000
 
 CMD ["node", "./packages/client/server.js"]

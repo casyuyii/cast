@@ -23,6 +23,4 @@ ENV NODE_ENV=production
 COPY --from=build /app/node_modules ./node_modules
 COPY --from=build /app/packages/server/dist ./packages/server/dist
 
-EXPOSE 3100
-
 CMD ["node", "./packages/server/dist/main"]
