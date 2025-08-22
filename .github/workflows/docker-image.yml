@@ -1,18 +1,20 @@
-name: Docker Image CI
+name: Remote docker compose
 
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
 
 jobs:
-
   build:
-
-    runs-on: ubuntu-latest
-
+    runs-on: debian-latest
     steps:
-    - uses: actions/checkout@v4
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+    - name: Deploy on remote host
+      uses: appleboy/ssh-action@v1.2.0
+      with:
+        host:     ${{ secrets.RN_SSH_HOST }}
+        username: ${{ secrets.RN_SSH_USER }}
+        key:      ${{ secrets.RN_SSH_PRIVATE_KEY }}
+        script: |
+          cd /root/projects/cast
+          git pull --ff-only
+          bun docker:up
