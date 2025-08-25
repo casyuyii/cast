@@ -6,12 +6,12 @@ services:
       context: ..
       dockerfile: ./docker/client.Dockerfile
       args:
-        NEXT_PUBLIC_BACK_END_API_URL: http://localhost:3100
-        NEXT_PUBLIC_FRONT_END_URL: http://localhost:3000
+        NEXT_PUBLIC_BACK_END_API_URL: http://localhost:8080
+        NEXT_PUBLIC_FRONT_END_URL: http://casyu.me
     ports:
-      - "3000:3000"
+      - "80:80"
     environment:
-      PORT: 3000
+      PORT: 80
     depends_on:
       - server
     networks:
@@ -22,10 +22,10 @@ services:
       context: ..
       dockerfile: ./docker/server.Dockerfile
     ports:
-      - "3100:3100"
+      - "8080:8080"
     environment:
       MONGO_URI: mongodb://mongodb:27017
-      PORT: 3100
+      PORT: 8080
     depends_on:
       - mongodb
     networks:

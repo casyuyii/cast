@@ -2,19 +2,19 @@ name: Remote docker compose
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Deploy on remote host
-      uses: appleboy/ssh-action@v1.2.0
-      with:
-        host:     ${{ secrets.RN_SSH_HOST }}
-        username: ${{ secrets.RN_SSH_USER }}
-        key:      ${{ secrets.RN_SSH_PRIVATE_KEY }}
-        script: |
-          cd /root/projects/cast
-          git pull --ff-only
-          bun docker:up
+      - name: Deploy on remote host
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.RN_SSH_HOST }}
+          username: ${{ secrets.RN_SSH_USER }}
+          key: ${{ secrets.RN_SSH_PRIVATE_KEY }}
+          script: |
+            cd /root/projects/cast
+            git pull --ff-only
+            bun docker:prod
