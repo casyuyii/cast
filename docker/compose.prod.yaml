@@ -6,7 +6,7 @@ services:
       context: ..
       dockerfile: ./docker/client.Dockerfile
       args:
-        NEXT_PUBLIC_BACK_END_API_URL: http://localhost:8080
+        NEXT_PUBLIC_BACK_END_API_URL: http://casyu.me:8080
         NEXT_PUBLIC_FRONT_END_URL: http://casyu.me
     ports:
       - "80:80"
