@@ -1,15 +1,25 @@
 name: cast
 
 services:
+  nginx:
+    build:
+      context: .
+      dockerfile: ./nginx.prod.Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - client
+      - server
+    networks:
+      - public
+
   client:
     build:
       context: ..
       dockerfile: ./docker/client.Dockerfile
       args:
-        NEXT_PUBLIC_BACK_END_API_URL: http://casyu.me:8080
+        NEXT_PUBLIC_BACK_END_API_URL: http://casyu.me/api
         NEXT_PUBLIC_FRONT_END_URL: http://casyu.me
-    ports:
-      - "80:80"
     environment:
       PORT: 80
     depends_on:
@@ -21,8 +31,6 @@ services:
     build:
       context: ..
       dockerfile: ./docker/server.Dockerfile
-    ports:
-      - "8080:8080"
     environment:
       MONGO_URI: mongodb://mongodb:27017
       PORT: 8080
