@@ -12,6 +12,7 @@ services:
       - server
     networks:
       - public
+      - internal
 
   client:
     build:
