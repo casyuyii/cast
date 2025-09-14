@@ -25,7 +25,7 @@ services:
     depends_on:
       - server
     networks:
-      - public
+      - internal
 
   server:
     build:
@@ -37,13 +37,10 @@ services:
     depends_on:
       - mongodb
     networks:
-      - public
       - internal
 
   mongodb:
     image: mongo:latest
-    ports:
-      - "27017:27017"
     volumes:
       - mongodb_data:/data/db
       - mongodb_config:/data/configdb
