@@ -15,6 +15,12 @@ jobs:
           username: ${{ secrets.RN_SSH_USER }}
           key: ${{ secrets.RN_SSH_PRIVATE_KEY }}
           script: |
+            set -eu
+            mkdir -p /etc/nginx/ssl
+            umask 077
+            echo "${{ secrets.ORIGIN_CERT_B64 }}" | base64 -d | sudo tee /etc/nginx/ssl/casyu.me.origin.crt > /dev/null
+            echo "${{ secrets.ORIGIN_KEY_B64 }}"  | base64 -d | sudo tee /etc/nginx/ssl/casyu.me.origin.key > /dev/null
+            sudo chmod 600 /etc/nginx/ssl/example.com.origin.key
             cd /root/projects/cast
             git pull --ff-only
             bun docker:prod
