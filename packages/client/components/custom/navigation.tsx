@@ -38,7 +38,7 @@ export default function NavigationMenuDemo() {
           </NavigationMenuList>
         </NavigationMenu>
 
-        <Link href="https://www.notion.so/Blogs-266ca97f62d0804894b6c8c1e3bfbbc4?source=copy_link">
+        <Link href="https://www.notion.so/Blogs-266ca97f62d0804894b6c8c1e3bfbbc4">
           <Button variant="link">About Me</Button>
         </Link>
       </div>
