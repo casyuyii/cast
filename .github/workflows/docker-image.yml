@@ -20,7 +20,7 @@ jobs:
             umask 077
             echo "${{ secrets.ORIGIN_CERT_B64 }}" | base64 -d | tee /etc/nginx/ssl/casyu.me.origin.crt > /dev/null
             echo "${{ secrets.ORIGIN_KEY_B64 }}"  | base64 -d | tee /etc/nginx/ssl/casyu.me.origin.key > /dev/null
-            chmod 600 /etc/nginx/ssl/example.com.origin.key
+            chmod 600 /etc/nginx/ssl/casyu.me.origin.key 
             cd /root/projects/cast
             git pull --ff-only
             bun docker:prod
