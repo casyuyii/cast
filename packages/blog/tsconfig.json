@@ -6,7 +6,10 @@
     "baseUrl": ".",
     "paths": {
       "@styles/*": ["./src/styles/*"],
-      "@layouts/*": ["./src/layouts/*"]
-    }
+      "@layouts/*": ["./src/layouts/*"],
+      "@components/*": ["./src/components/*"]
+    },
+    "strictNullChecks": true,
+    "allowJs": true
   }
 }

@@ -32,8 +32,6 @@ export default [
       parserOptions: {
         parser: tsParser,
         extraFileExtensions: [".astro"],
-        project: "./tsconfig.json",
-        tsconfigRootDir: import.meta.dirname,
       },
     },
     rules: {

@@ -1,4 +1,5 @@
 ---
+layout: ../../layouts/mdlayout.astro
 title: "My First Blog Post"
 pubDate: 2025-09-22
 description: "This is the first post of my new blog."

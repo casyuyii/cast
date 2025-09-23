@@ -1,8 +1,11 @@
 ---
-import "@styles/global.css";
-import Layout from "@layouts/layout.astro";
+import Mdlayout from "@layouts/mdlayout.astro";
+import { getEntry, render } from "astro:content";
+
+const entry = await getEntry("posts2017", "post2");
+const { Content } = await render(entry!);
 ---
 
-<Layout>
-  <h1 class="text-3xl font-bold underline">Cas's Blog</h1>
-</Layout>
+<Mdlayout>
+  <Content />
+</Mdlayout>
