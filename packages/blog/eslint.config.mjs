@@ -13,15 +13,18 @@ export default [
       sourceType: "module",
       parser: tsParser,
       parserOptions: {
-        project: "./tsconfig.json",
-        tsconfigRootDir: import.meta.dirname,
+        // Remove project option to disable type-aware linting for better performance
+        // tsconfigRootDir: import.meta.dirname,
       },
     },
     plugins: {
       "@typescript-eslint": tsPlugin,
     },
     rules: {
-      // Basic rules for now
+      // Basic TypeScript rules without type checking
+      "@typescript-eslint/no-unused-vars": "error",
+      "@typescript-eslint/no-explicit-any": "warn",
+      "prefer-const": "error",
     },
   },
   ...astroPlugin.configs["flat/recommended"],

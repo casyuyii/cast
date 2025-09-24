@@ -2,6 +2,7 @@ import { defineCollection, z } from "astro:content";
 import { glob } from "astro/loaders";
 import { readdirSync } from "fs";
 import { join } from "path";
+import type { CollectionConfig } from "astro/content/config";
 
 // Define the blog post schema
 const blogPostSchema = z.object({
@@ -12,7 +13,7 @@ const blogPostSchema = z.object({
 // Function to dynamically create collections based on year folders
 function createDynamicCollections() {
   const postsDir = "./src/pages/posts";
-  const collections: Record<string, any> = {};
+  const collections: Record<string, CollectionConfig<typeof blogPostSchema>> = {};
 
   try {
     // Read all year directories in the posts folder
