@@ -1,5 +1,7 @@
 ---
 import "@styles/global.css";
+
+const { title } = Astro.props;
 ---
 
 <!doctype html>
@@ -8,6 +10,7 @@ import "@styles/global.css";
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
   </head>
   <body class="min-h-screen bg-gray-50">
     <div class="mx-auto w-fit p-4">

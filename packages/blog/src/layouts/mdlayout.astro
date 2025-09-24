@@ -1,9 +1,12 @@
 ---
 import Basic from "@layouts/basic.astro";
+import Mdcomp from "@components/mdcomp.astro";
+
+const { title, pubDate } = Astro.props;
 ---
 
-<Basic>
-  <article class="prose lg:prose-xl">
+<Basic title={title}>
+  <Mdcomp title={title} pubDate={pubDate}>
     <slot />
-  </article>
+  </Mdcomp>
 </Basic>

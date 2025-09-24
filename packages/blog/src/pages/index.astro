@@ -3,9 +3,12 @@ import Mdlayout from "@layouts/mdlayout.astro";
 import { getEntry, render } from "astro:content";
 
 const entry = await getEntry("posts2017", "post2");
-const { Content } = await render(entry!);
+if (!entry) {
+  throw new Error("Entry not found");
+}
+const { Content } = await render(entry);
 ---
 
-<Mdlayout>
+<Mdlayout title={entry.data.title} pubDate={entry.data.pubDate}>
   <Content />
 </Mdlayout>

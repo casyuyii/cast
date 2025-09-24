@@ -6,6 +6,7 @@ import { join } from "path";
 // Define the blog post schema
 const blogPostSchema = z.object({
   title: z.string(),
+  pubDate: z.coerce.date(),
 });
 
 // Function to dynamically create collections based on year folders
