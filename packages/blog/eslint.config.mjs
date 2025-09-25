@@ -1,44 +1,19 @@
-import tsParser from "@typescript-eslint/parser";
-import tsPlugin from "@typescript-eslint/eslint-plugin";
+import { defineConfig } from "eslint/config";
+import eslint from "@eslint/js";
 import astroPlugin from "eslint-plugin-astro";
+import tseslint from "typescript-eslint";
 
-export default [
+export default defineConfig([
   {
-    ignores: ["**/*.md", "**/*.mdx", "dist/**", "node_modules/**"],
+    ignores: ["dist/**", "node_modules/**", ".astro/**"],
   },
+  eslint.configs.recommended,
+  ...tseslint.configs.recommended,
   {
-    files: ["**/*.{js,ts}"],
-    languageOptions: {
-      ecmaVersion: "latest",
-      sourceType: "module",
-      parser: tsParser,
-      parserOptions: {
-        // Remove project option to disable type-aware linting for better performance
-        // tsconfigRootDir: import.meta.dirname,
-      },
-    },
-    plugins: {
-      "@typescript-eslint": tsPlugin,
-    },
-    rules: {
-      // Basic TypeScript rules without type checking
-      "@typescript-eslint/no-unused-vars": "error",
-      "@typescript-eslint/no-explicit-any": "warn",
-      "prefer-const": "error",
-    },
+    rules: {},
   },
   ...astroPlugin.configs["flat/recommended"],
   {
-    files: ["**/*.astro"],
-    languageOptions: {
-      parser: astroPlugin.parser,
-      parserOptions: {
-        parser: tsParser,
-        extraFileExtensions: [".astro"],
-      },
-    },
-    rules: {
-      // Astro-specific rules
-    },
+    rules: {},
   },
-];
+]);
