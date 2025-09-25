@@ -51,7 +51,7 @@ module.exports = {
     require("@tailwindcss/typography"),
     // ...
   ],
-};
+}
 ```
 
 ---
@@ -64,12 +64,13 @@ Now you can use the `prose` classes to add sensible typography styles to any van
 <article class="prose lg:prose-xl">
   <h1>Garlic bread with cheese: What the science tells us</h1>
   <p>
-    For years parents have espoused the health benefits of eating garlic bread with cheese to their children, with the
-    food earning such an iconic status in our culture that kids will often dress up as warm, cheesy loaf for Halloween.
+    For years parents have espoused the health benefits of eating garlic bread with cheese to their
+    children, with the food earning such an iconic status in our culture that kids will often dress
+    up as warm, cheesy loaf for Halloween.
   </p>
   <p>
-    But a recent study shows that the celebrated appetizer may be linked to a series of rabies cases springing up around
-    the country.
+    But a recent study shows that the celebrated appetizer may be linked to a series of rabies cases
+    springing up around the country.
   </p>
   <!-- ... -->
 </article>
@@ -156,7 +157,9 @@ To learn about creating your own color themes, read the [adding custom color the
 Use element modifiers to customize the style of individual elements in your content directly in your HTML:
 
 ```html
-<article class="prose prose-img:rounded-xl prose-headings:underline prose-a:text-blue-600">{{ markdown }}</article>
+<article class="prose prose-img:rounded-xl prose-headings:underline prose-a:text-blue-600">
+  {{ markdown }}
+</article>
 ```
 
 This makes it easy to do things like style links to match your brand, add a border radius to images, and tons more.
@@ -342,7 +345,7 @@ module.exports = {
       }),
     },
   },
-};
+}
 ```
 
 See our internal [style definitions](https://github.com/tailwindlabs/tailwindcss-typography/blob/main/src/styles.js) for some more examples.
@@ -406,7 +409,7 @@ module.exports = {
       },
     },
   },
-};
+}
 ```
 
 Like with all theme customizations in Tailwind, you can use CSS variables if you need access to access your theme configuration:
@@ -426,7 +429,7 @@ module.exports = {
       },
     },
   },
-};
+}
 ```
 
 Customizations should be applied to a specific modifier like `DEFAULT` or `xl`, and must be added under the `css` property. Customizations are authored in the same [CSS-in-JS syntax](https://v3.tailwindcss.com/docs/plugins#css-in-js-syntax) used to write Tailwind v3 plugins.
