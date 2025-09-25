@@ -2,7 +2,7 @@
 import Mdlayout from "@layouts/mdlayout.astro";
 import { getEntry, render } from "astro:content";
 
-const entry = await getEntry("posts2017", "post2");
+const entry = await getEntry("blog", "post2");
 if (!entry) {
   throw new Error("Entry not found");
 }
