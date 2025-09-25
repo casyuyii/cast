@@ -1,6 +1,6 @@
 ---
 layout: ../../layouts/mdlayout.astro
-title: "My First Blog Post"
+title: "Test md style"
 pubDate: 2025-09-22
 ---
 
