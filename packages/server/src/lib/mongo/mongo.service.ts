@@ -1,32 +1,32 @@
-import { Injectable, OnModuleInit, OnModuleDestroy } from '@nestjs/common';
-import { MongoClient, Db } from 'mongodb';
+import { Injectable, OnModuleInit, OnModuleDestroy } from "@nestjs/common"
+import { MongoClient, Db } from "mongodb"
 
 @Injectable()
 export class MongoService implements OnModuleInit, OnModuleDestroy {
-  private client: MongoClient;
-  private textDb: Db;
+  private client: MongoClient
+  private textDb: Db
 
   constructor() {}
 
   async onModuleInit() {
-    const uri = process.env.MONGO_URI;
+    const uri = process.env.MONGO_URI
     if (!uri) {
-      throw new Error('MONGO_URI is not set');
+      throw new Error("MONGO_URI is not set")
     }
 
-    this.client = new MongoClient(uri);
-    await this.client.connect();
-    this.textDb = this.client.db('text');
+    this.client = new MongoClient(uri)
+    await this.client.connect()
+    this.textDb = this.client.db("text")
 
-    console.log(`✅ Connected to MongoDB ${uri}`);
+    console.log(`✅ Connected to MongoDB ${uri}`)
   }
 
   async onModuleDestroy() {
-    await this.client.close();
-    console.log(`❌ Disconnected from MongoDB`);
+    await this.client.close()
+    console.log(`❌ Disconnected from MongoDB`)
   }
 
   getTextDb(): Db {
-    return this.textDb;
+    return this.textDb
   }
 }

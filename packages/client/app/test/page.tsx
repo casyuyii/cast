@@ -4,5 +4,5 @@ export default function GetTest() {
       <h1>Test page</h1>
       <p>This is the test page where users can retrieve test data.</p>
     </div>
-  );
+  )
 }

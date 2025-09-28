@@ -1,9 +1,9 @@
-import { Suspense } from "react";
+import { Suspense } from "react"
 
 export default function GetTextLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
-  return <Suspense fallback={<div>Loading...</div>}>{children}</Suspense>;
+  return <Suspense fallback={<div>Loading...</div>}>{children}</Suspense>
 }

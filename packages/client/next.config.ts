@@ -1,5 +1,5 @@
-import type { NextConfig } from "next";
-import path from "path";
+import type { NextConfig } from "next"
+import path from "path"
 
 const nextConfig: NextConfig = {
   /* config options here */
@@ -14,8 +14,8 @@ const nextConfig: NextConfig = {
         destination: "https://www.notion.so/Blogs-266ca97f62d0804894b6c8c1e3bfbbc4",
         permanent: true,
       },
-    ];
+    ]
   },
-};
+}
 
-export default nextConfig;
+export default nextConfig

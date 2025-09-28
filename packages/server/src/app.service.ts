@@ -1,8 +1,8 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable } from "@nestjs/common"
 
 @Injectable()
 export class AppService {
   checkServer() {
-    return { code: '200', status: 'Api Test string v3' };
+    return { code: "200", status: "Api Test string v3" }
   }
 }

@@ -1,2 +1,0 @@
-# Ignore everything at root level - each package has its own ESLint config
-*

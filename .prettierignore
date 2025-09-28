@@ -1,0 +1,19 @@
+# Dependencies
+**/node_modules
+
+# Build outputs
+**/dist
+**/output
+
+# client
+packages/client/node_modules
+packages/client/.next
+
+# server
+packages/server/node_modules
+packages/server/dist
+
+# blog
+**/blog/node_modules
+**/blog/dist
+**/blog/.astro

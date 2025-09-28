@@ -1,5 +1,5 @@
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
 
 import {
   NavigationMenu,
@@ -8,7 +8,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu";
+} from "@/components/ui/navigation-menu"
 
 export default function NavigationMenuDemo() {
   return (
@@ -43,5 +43,5 @@ export default function NavigationMenuDemo() {
         </Link>
       </div>
     </div>
-  );
+  )
 }
