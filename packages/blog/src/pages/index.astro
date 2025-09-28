@@ -1,12 +1,12 @@
 ---
-import Mdlayout from "@layouts/mdlayout.astro";
-import { getEntry, render } from "astro:content";
+import Mdlayout from "@layouts/mdlayout.astro"
+import { getEntry, render } from "astro:content"
 
-const entry = await getEntry("blog", "cooperate");
+const entry = await getEntry("blog", "cooperate")
 if (!entry) {
-  throw new Error("Entry not found");
+  throw new Error("Entry not found")
 }
-const { Content } = await render(entry);
+const { Content } = await render(entry)
 ---
 
 <Mdlayout title={entry.data.title} pubDate={entry.data.pubDate}>
