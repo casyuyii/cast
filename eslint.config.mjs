@@ -40,7 +40,7 @@ export default defineConfig([
     files: ["packages/server/**/*.{ts,tsx,js,jsx}"],
     languageOptions: {
       parserOptions: {
-        tsconfigRootFile: import.meta.dirname,
+        tsconfigRootDir: import.meta.dirname,
         project: "packages/server/tsconfig.json",
       },
     },
@@ -56,7 +56,7 @@ export default defineConfig([
     ignores: ["packages/blog/.astro/**"],
     languageOptions: {
       parserOptions: {
-        tsconfigRootFile: import.meta.dirname,
+        tsconfigRootDir: import.meta.dirname,
         project: "packages/blog/tsconfig.json",
       },
     },
