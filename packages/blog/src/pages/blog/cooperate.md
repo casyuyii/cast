@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/mdlayout.astro
 title: "Cooperate"
 pubDate: 2025-09-25
 ---

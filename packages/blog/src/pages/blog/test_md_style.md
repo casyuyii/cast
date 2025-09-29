@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/mdlayout.astro
 title: "Test md style"
 pubDate: 2025-09-22
 ---
