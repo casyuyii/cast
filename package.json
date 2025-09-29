@@ -13,7 +13,6 @@
     "server:docker": "docker build -f ./docker/server.Dockerfile -t server .",
     "blog:dev": "bun --filter blog dev",
     "blog:build": "bun --filter blog build",
-    "blog:docker": "docker build -f ./docker/blog.Dockerfile -t blog .",
     "docker:up": "docker compose -f ./docker/compose.dev.yaml up",
     "docker:down": "docker compose -f ./docker/compose.dev.yaml down",
     "docker:prod": "docker compose -f ./docker/compose.prod.yaml up -d --build --force-recreate"

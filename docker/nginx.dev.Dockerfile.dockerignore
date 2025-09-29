@@ -1,0 +1,28 @@
+# ignore all packages
+./packages/*
+# keep blog package
+!./packages/blog
+# keep package.json to --frozen-lockfile 
+# the lockfile includes all dependencies, if lack of package.json, the lockfile will be invalid
+!**/package.json
+
+# docker
+./docker
+# keep env file
+!./docker/env
+# keep nginx.dev.conf
+!./docker/nginx.dev.conf
+# deps
+**/node_modules
+
+# output
+**/dist
+**/.next
+
+# other
+**/README.md
+**/.git
+**/.vscode
+**/.gitignore
+**/.prettierrc
+**/.env

@@ -3,8 +3,8 @@ name: cast
 services:
   nginx:
     build:
-      context: .
-      dockerfile: ./nginx.dev.Dockerfile
+      context: ..
+      dockerfile: ./docker/nginx.dev.Dockerfile
     ports:
       - "80:80"
     depends_on:
