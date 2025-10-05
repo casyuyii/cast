@@ -17,3 +17,5 @@ packages/server/dist
 **/blog/node_modules
 **/blog/dist
 **/blog/.astro
+
+*.lock
