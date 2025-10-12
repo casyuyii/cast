@@ -19,8 +19,9 @@ COPY ./docker/nginx.dev.conf /etc/nginx/nginx.conf
 # Copy built blog static files
 COPY --from=blog-builder /app/packages/blog/dist /usr/share/nginx/html/blog
 
-# Create necessary directories
-RUN mkdir -p /var/log/nginx
+# Create necessary directories and fix permissions
+RUN chown -R nginx:nginx /usr/share/nginx/html/blog && \
+    chmod -R 755 /usr/share/nginx/html/blog
 
 # Expose port 80
 EXPOSE 80
