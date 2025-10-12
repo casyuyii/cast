@@ -1,5 +1,6 @@
 ---
 import "@styles/global.css"
+import Topmenubar from "@components/topmenubar.astro"
 
 const { title } = Astro.props
 ---
@@ -13,7 +14,8 @@ const { title } = Astro.props
     <title>{title}</title>
   </head>
   <body class="min-h-screen bg-gray-50">
-    <div class="mx-auto w-fit p-4">
+    <Topmenubar />
+    <div class="mx-auto w-fit mt-10">
       <slot />
     </div>
   </body>

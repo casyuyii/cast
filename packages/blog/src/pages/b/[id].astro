@@ -1,0 +1,27 @@
+---
+import Mdlayout from "@layouts/mdlayout.astro"
+import { getCollection, getEntry, render } from "astro:content"
+
+export async function getStaticPaths() {
+  const allBlogPosts = await getCollection("blog")
+
+  return allBlogPosts.map((post) => ({
+    params: { id: post.id },
+  }))
+}
+
+const { id } = Astro.params
+if (!id) {
+  throw new Error("ID is required")
+}
+
+const entry = await getEntry("blog", id)
+if (!entry) {
+  throw new Error("Entry not found")
+}
+const { Content } = await render(entry)
+---
+
+<Mdlayout title={entry.data.title} pubDate={entry.data.pubDate}>
+  <Content />
+</Mdlayout>

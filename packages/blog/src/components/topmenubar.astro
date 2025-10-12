@@ -1,0 +1,20 @@
+---
+const links = [
+  {
+    label: "Home",
+    href: "/",
+  },
+]
+---
+
+<nav class="fixed top-0 left-0 right-0 bg-gray-50 py-2 px-4">
+  <div class="flex gap-4 w-full">
+    {
+      links.map((link) => (
+        <a class="hover:underline text-cyan-500" href={link.href}>
+          {link.label}
+        </a>
+      ))
+    }
+  </div>
+</nav>

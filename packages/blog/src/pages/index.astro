@@ -1,14 +1,40 @@
 ---
-import Mdlayout from "@layouts/mdlayout.astro"
-import { getEntry, render } from "astro:content"
+import Basic from "@layouts/basic.astro"
+import { getCollection } from "astro:content"
 
-const entry = await getEntry("blog", "cooperate")
-if (!entry) {
-  throw new Error("Entry not found")
-}
-const { Content } = await render(entry)
+const allBlogPosts = await getCollection("blog")
+allBlogPosts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
 ---
 
-<Mdlayout title={entry.data.title} pubDate={entry.data.pubDate}>
-  <Content />
-</Mdlayout>
+<Basic>
+  <div class="flex flex-col gap-4">
+    {
+      allBlogPosts.map((post) => (
+        <div>
+          <a class="hover:underline text-cyan-500" href={"/b/" + post.id}>
+            {post.data.title}
+          </a>
+          <p>
+            {"written on: " +
+              post.data.pubDate.toLocaleDateString("en-US", {
+                weekday: "short",
+                year: "numeric",
+                month: "numeric",
+                day: "numeric",
+              })}
+          </p>
+        </div>
+      ))
+    }
+  </div>
+
+  <div class="flex flex-col pt-8">
+    <a
+      href="https://www.notion.so/Archive-blogs-304e00d84228430f9b72e765ddec0129"
+      class="hover:underline text-cyan-500"
+    >
+      Archived Notion
+    </a>
+    <a href="https://yucangs.github.io/" class="hover:underline text-cyan-500"> Archived Site </a>
+  </div>
+</Basic>
