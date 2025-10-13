@@ -1,40 +1,64 @@
 ---
 import Basic from "@layouts/basic.astro"
+import Divider from "@components/divider.astro"
 import { getCollection } from "astro:content"
+
+type GroupedPosts = {
+  tag: string
+  posts: typeof allBlogPosts
+}
 
 const allBlogPosts = await getCollection("blog")
 allBlogPosts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
+const groupedPosts = allBlogPosts.reduce((acc, post) => {
+  const tag = post.data.pubDate.getFullYear().toString()
+  let group = acc.find((group) => group.tag === tag)
+  if (!group) {
+    acc.push({
+      tag,
+      posts: [],
+    })
+    group = acc[acc.length - 1]
+  }
+  group.posts.push(post)
+  return acc
+}, [] as GroupedPosts[])
 ---
 
 <Basic>
-  <div class="flex flex-col gap-4">
+  <div class="flex flex-col items-center gap-4 pt-10 max-w-2xl mx-auto">
     {
-      allBlogPosts.map((post) => (
-        <div>
-          <a class="hover:underline text-cyan-500" href={"/b/" + post.id}>
-            {post.data.title}
-          </a>
-          <p>
-            {"written on: " +
-              post.data.pubDate.toLocaleDateString("en-US", {
-                weekday: "short",
-                year: "numeric",
-                month: "numeric",
-                day: "numeric",
-              })}
-          </p>
+      groupedPosts.map((posts) => (
+        <div class="flex flex-col pt-4 max-w-2xl mx-auto">
+          <Divider tag={posts.tag} />
+          {posts.posts.map((post) => (
+            <div class="flex flex-col items-center py-1.5">
+              <a class="hover:underline text-cyan-500" href={"/b/" + post.id}>
+                {post.data.title}
+              </a>
+              <p>
+                {"written on: " +
+                  post.data.pubDate.toLocaleDateString("en-US", {
+                    weekday: "short",
+                    year: "numeric",
+                    month: "numeric",
+                    day: "numeric",
+                  })}
+              </p>
+            </div>
+          ))}
         </div>
       ))
     }
-  </div>
 
-  <div class="flex flex-col pt-8">
-    <a
-      href="https://www.notion.so/Archive-blogs-304e00d84228430f9b72e765ddec0129"
-      class="hover:underline text-cyan-500"
-    >
-      Archived Notion
-    </a>
-    <a href="https://yucangs.github.io/" class="hover:underline text-cyan-500"> Archived Site </a>
+    <div class="flex flex-col items-center pt-8">
+      <a
+        href="https://www.notion.so/Archive-blogs-304e00d84228430f9b72e765ddec0129"
+        class="hover:underline text-cyan-500"
+      >
+        Archived Notion
+      </a>
+      <a href="https://yucangs.github.io/" class="hover:underline text-cyan-500"> Archived Site </a>
+    </div>
   </div>
 </Basic>

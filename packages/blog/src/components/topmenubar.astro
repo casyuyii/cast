@@ -1,14 +1,15 @@
 ---
 const links = [
   {
-    label: "Home",
+    label: "About",
     href: "/",
   },
 ]
 ---
 
-<nav class="fixed top-0 left-0 right-0 bg-gray-50 py-2 px-4">
-  <div class="flex gap-4 w-full">
+<nav class="fixed top-0 left-0 right-0 bg-gray-50 py-2 md:px-6 border-b border-gray-200">
+  <div class="flex mx-auto justify-between items-center max-w-4xl">
+    <a class="text-cyan-800 text-2xl font-bold" href="/">Casyu.me</a>
     {
       links.map((link) => (
         <a class="hover:underline text-cyan-500" href={link.href}>
