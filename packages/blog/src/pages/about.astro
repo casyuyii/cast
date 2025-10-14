@@ -1,0 +1,72 @@
+---
+import Basic from "@layouts/basic.astro"
+import Github from "../assets/github-mark.svg"
+// import Typescript from "../assets/typescript-original.svg"
+// import Go from "../assets/go-original.svg"
+// import Cpp from "../assets/cplusplus-original.svg"
+
+const socialLinks = [
+  {
+    label: "GitHub",
+    href: "https://github.com/casyuyii",
+    svg: Github,
+    viewBox: "0 0 98 96",
+    width: 98 / 3,
+    height: 96 / 3,
+  },
+]
+
+// const languageIconScale = 5
+// const languages = [
+//   {
+//     label: "Typescript",
+//     svg: Typescript,
+//     viewBox: "0 0 128 128",
+//     width: 128 / languageIconScale,
+//     height: 128 / languageIconScale,
+//   },
+//   {
+//     label: "Go",
+//     svg: Go,
+//     viewBox: "0 0 128 128",
+//     width: 128 / languageIconScale,
+//     height: 128 / languageIconScale,
+//   },
+//   {
+//     label: "C++",
+//     svg: Cpp,
+//     viewBox: "0 0 128 128",
+//     width: 128 / languageIconScale,
+//     height: 128 / languageIconScale,
+//   },
+// ]
+---
+
+<Basic>
+  <div class="flex flex-col items-center gap-4 px-2 py-10 max-w-2xl mx-auto">
+    <div class="justify-start">
+      <p>后端开发,会一点点前端, 目标是成为能养活自己的远程/独立开发者</p>
+      <p>联系方式: casyuhf@gmail.com casyup@outlook.com</p>
+    </div>
+    <!-- <div class="flex flex-row items-center gap-2">
+      {
+        languages.map((language) => (
+          <language.svg
+            viewBox={language.viewBox}
+            width={language.width}
+            height={language.height}
+          />
+        ))
+      }
+    </div> -->
+    <div>
+      {
+        socialLinks.map((link) => (
+          <a href={link.href}>
+            <link.svg viewBox={link.viewBox} width={link.width} height={link.height} />
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</Basic>
