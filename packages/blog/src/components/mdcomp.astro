@@ -2,7 +2,7 @@
 const { title, pubDate } = Astro.props
 ---
 
-<article class="prose lg:prose-lg xl:prose-xl py-4 px-2">
+<article class="prose lg:prose-base xl:prose-lg max-w-none py-4 px-2">
   <h1>{title}</h1>
   <p>Written on: {pubDate.toLocaleDateString()}</p>
   <slot />
