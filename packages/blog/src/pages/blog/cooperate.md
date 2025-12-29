@@ -8,7 +8,7 @@ pubDate: 2025-09-25
 ## 问题
 
 今天策划提出了一个每日免费礼包的需求, 类似 LOL 的每日免费宝箱  
-![LOL daily box.](../../assets/dailyfreebox.png)
+![LOL daily box.](/images/dailyfreebox.png)
 这个需求策划想要加在商店这个界面中, 需求本身很简单, 但我却犯了难
 
 作为服务器程序, 我不想这种需求放在商店中, 因为这不符合交易这个概念  
