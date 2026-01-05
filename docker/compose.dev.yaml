@@ -20,6 +20,8 @@ services:
       args:
         NEXT_PUBLIC_BACK_END_API_URL: http://localhost/api
         NEXT_PUBLIC_FRONT_END_URL: http://localhost
+    ports:
+      - "3000:3000"
     environment:
       PORT: 3000
     depends_on:
