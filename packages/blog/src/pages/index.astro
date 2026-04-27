@@ -37,13 +37,12 @@ const groupedPosts = allBlogPosts.reduce((acc, post) => {
                 {post.data.title}
               </a>
               <p>
-                {"written on: " +
-                  post.data.pubDate.toLocaleDateString("en-US", {
-                    weekday: "short",
-                    year: "numeric",
-                    month: "numeric",
-                    day: "numeric",
-                  })}
+                {post.data.pubDate.toLocaleDateString("en-US", {
+                  weekday: "short",
+                  year: "numeric",
+                  month: "numeric",
+                  day: "numeric",
+                })}
               </p>
             </div>
           ))}
