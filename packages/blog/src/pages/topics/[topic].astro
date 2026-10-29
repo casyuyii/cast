@@ -4,7 +4,7 @@ import Basic from "@layouts/basic.astro"
 import PostArchive from "@components/post-archive.astro"
 
 export async function getStaticPaths() {
-  const posts = await getCollection("blog")
+  const posts = (await getCollection("blog")).filter((post) => !post.data.unlisted)
   const topics = [...new Set(posts.flatMap((post) => post.data.topics))]
   return topics.map((topic) => ({
     params: { topic: topic.toLowerCase().replace(/\s+/g, "-") },

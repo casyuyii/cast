@@ -27,6 +27,8 @@ const { Content, headings } = await render(entry)
   pubDate={entry.data.pubDate}
   topics={entry.data.topics}
   headings={headings}
+  archived={entry.data.archived}
+  sourceUrl={entry.data.sourceUrl}
 >
   <Content />
 </Mdlayout>

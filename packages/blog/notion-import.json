@@ -1,0 +1,374 @@
+{
+  "sourceArchive": "39718a40-94cf-4909-92cf-17f4f0a06633_ExportBlock-9220f112-dffd-48a5-b4ba-7c9a17f92d48.zip",
+  "sourceSha256": "c0d76fb7851e2e19b2696f1f431a20e4adcad663bfa7377398a1164816949346",
+  "pages": [
+    {
+      "title": "Archive blogs",
+      "path": "src/pages/blog/archive-index.md",
+      "sourceId": "304e00d84228430f9b72e765ddec0129",
+      "pubDate": "2025-08-28",
+      "unlisted": false
+    },
+    {
+      "title": "About me",
+      "path": "src/pages/blog/archive-about-me-9cde9a3d.md",
+      "sourceId": "9cde9a3dd98f47319762b9a1844f2740",
+      "pubDate": null,
+      "unlisted": false
+    },
+    {
+      "title": "How glibc manage stack",
+      "path": "src/pages/blog/archive-how-glibc-manage-stack-790f10d9.md",
+      "sourceId": "790f10d9496e4d71978e15166b8fe04a",
+      "pubDate": null,
+      "unlisted": false
+    },
+    {
+      "title": "Memory Synchronization",
+      "path": "src/pages/blog/archive-memory-synchronization-e65ebdae.md",
+      "sourceId": "e65ebdaebac543bb9751a7f89b7b9f12",
+      "pubDate": null,
+      "unlisted": false
+    },
+    {
+      "title": "Event Poll",
+      "path": "src/pages/blog/archive-event-poll-59fd551d.md",
+      "sourceId": "59fd551dfc3d4707a57512120675e8e5",
+      "pubDate": null,
+      "unlisted": false
+    },
+    {
+      "title": "task_struct",
+      "path": "src/pages/blog/archive-task-struct-68d8c33e.md",
+      "sourceId": "68d8c33ec57943e99352a152e075c8f6",
+      "pubDate": null,
+      "unlisted": false
+    },
+    {
+      "title": "mutex",
+      "path": "src/pages/blog/archive-mutex-d63fd502.md",
+      "sourceId": "d63fd502935e4256b8df917dc8c0a12b",
+      "pubDate": null,
+      "unlisted": false
+    },
+    {
+      "title": "memory barriers",
+      "path": "src/pages/blog/archive-memory-barriers-211cc832.md",
+      "sourceId": "211cc8323e8d41f587bdcd6f2685d229",
+      "pubDate": null,
+      "unlisted": false
+    },
+    {
+      "title": "fork",
+      "path": "src/pages/blog/archive-fork-75c1da9a.md",
+      "sourceId": "75c1da9ae5874d71aa8b5423b9bfb02d",
+      "pubDate": null,
+      "unlisted": false
+    },
+    {
+      "title": ".c to .S to .h",
+      "path": "src/pages/blog/archive-c-to-s-to-h-5494def0.md",
+      "sourceId": "5494def014fd41e1b275c6da0faeb6e3",
+      "pubDate": null,
+      "unlisted": false
+    },
+    {
+      "title": "kmalloc",
+      "path": "src/pages/blog/archive-kmalloc-22da2242.md",
+      "sourceId": "22da22421b4f40abbc4c555194ccc86d",
+      "pubDate": null,
+      "unlisted": false
+    },
+    {
+      "title": "epoll",
+      "path": "src/pages/blog/archive-epoll-d1f3527c.md",
+      "sourceId": "d1f3527c56de4a02b3e3e64ee68cc4fa",
+      "pubDate": null,
+      "unlisted": false
+    },
+    {
+      "title": "Docker netword",
+      "path": "src/pages/blog/archive-docker-netword-63433200.md",
+      "sourceId": "63433200bf9e41edad287a9871cc794a",
+      "pubDate": null,
+      "unlisted": false
+    },
+    {
+      "title": "Start process from init",
+      "path": "src/pages/blog/archive-start-process-from-init-b3b5fb58.md",
+      "sourceId": "b3b5fb58545048a8a62c413512455f7d",
+      "pubDate": null,
+      "unlisted": false
+    },
+    {
+      "title": "fork and vfork",
+      "path": "src/pages/blog/archive-fork-and-vfork-322f9778.md",
+      "sourceId": "322f977829f045b0b4bc0b51bb5e1734",
+      "pubDate": null,
+      "unlisted": false
+    },
+    {
+      "title": "memory order",
+      "path": "src/pages/blog/archive-memory-order-1b5c1ad8.md",
+      "sourceId": "1b5c1ad87f0d486ab7fce15e661346c4",
+      "pubDate": null,
+      "unlisted": false
+    },
+    {
+      "title": "NUMA",
+      "path": "src/pages/blog/archive-numa-7a45e606.md",
+      "sourceId": "7a45e606dcce4a0d851393583a526228",
+      "pubDate": null,
+      "unlisted": false
+    },
+    {
+      "title": "Seqcount lock",
+      "path": "src/pages/blog/archive-seqcount-lock-b17a55fb.md",
+      "sourceId": "b17a55fb7a054d11a7fbf38f4a3925ee",
+      "pubDate": null,
+      "unlisted": false
+    },
+    {
+      "title": "RSA",
+      "path": "src/pages/blog/archive-rsa-e7aa1abb.md",
+      "sourceId": "e7aa1abb2828458483beac4dd99a329d",
+      "pubDate": null,
+      "unlisted": false
+    },
+    {
+      "title": "0x5f3759df",
+      "path": "src/pages/blog/archive-0x5f3759df-614af92b.md",
+      "sourceId": "614af92b58df44b58b160a84775a5471",
+      "pubDate": null,
+      "unlisted": false
+    },
+    {
+      "title": "Regex lookaround",
+      "path": "src/pages/blog/archive-regex-lookaround-d1aa4eec.md",
+      "sourceId": "d1aa4eecc2304d32ada968caaf46fae2",
+      "pubDate": null,
+      "unlisted": false
+    },
+    {
+      "title": "ranking algorithm",
+      "path": "src/pages/blog/archive-ranking-algorithm-c939f823.md",
+      "sourceId": "c939f823be394f449b86ed23f8398367",
+      "pubDate": null,
+      "unlisted": false
+    },
+    {
+      "title": "Alphabet",
+      "path": "src/pages/blog/archive-alphabet-0ba468ad.md",
+      "sourceId": "0ba468ad35894ce3a3d4fc4075b62b3b",
+      "pubDate": null,
+      "unlisted": false
+    },
+    {
+      "title": "谢谢你 Drippy boy",
+      "path": "src/pages/blog/archive-drippy-boy-642cfeb7.md",
+      "sourceId": "642cfeb74dc346468e605e15e1e91c87",
+      "pubDate": null,
+      "unlisted": false
+    },
+    {
+      "title": "关于成长",
+      "path": "src/pages/blog/archive-note-ac24be9c.md",
+      "sourceId": "ac24be9c8ae04a789fcfe668f4c8e36d",
+      "pubDate": null,
+      "unlisted": false
+    },
+    {
+      "title": "1787. Make the XOR of All Segments Equal to Zero",
+      "path": "src/pages/blog/archive-1787-make-the-xor-of-all-segments-equal-to-zero-99e37f52.md",
+      "sourceId": "99e37f5296464d60864bf9013c5e686a",
+      "pubDate": null,
+      "unlisted": false
+    },
+    {
+      "title": "What's x ?",
+      "path": "src/pages/blog/archive-what-s-x-b704e282.md",
+      "sourceId": "b704e282fcc7449fb00ae7083d6fdc3f",
+      "pubDate": null,
+      "unlisted": false
+    },
+    {
+      "title": "Hash code in TCG",
+      "path": "src/pages/blog/archive-hash-code-in-tcg-bde203aa.md",
+      "sourceId": "bde203aadcac4be18c30689d579dffd3",
+      "pubDate": null,
+      "unlisted": false
+    },
+    {
+      "title": "Situation",
+      "path": "src/pages/blog/archive-situation-cbe228af.md",
+      "sourceId": "cbe228afd0a24c2abbb5094a7bcadacc",
+      "pubDate": null,
+      "unlisted": false
+    },
+    {
+      "title": "Dimission",
+      "path": "src/pages/blog/archive-dimission-d2d11e53.md",
+      "sourceId": "d2d11e53c13e469095d90cee5993e059",
+      "pubDate": null,
+      "unlisted": false
+    },
+    {
+      "title": "关于工作效率",
+      "path": "src/pages/blog/archive-note-53f6c622.md",
+      "sourceId": "53f6c62277c642fc8fdbba9d217eeda5",
+      "pubDate": null,
+      "unlisted": false
+    },
+    {
+      "title": "我推的孩子39",
+      "path": "src/pages/blog/archive-39-feceb33d.md",
+      "sourceId": "feceb33d15364045a709e7ae737d2ba1",
+      "pubDate": null,
+      "unlisted": false
+    },
+    {
+      "title": "@May 9, 2021 3:36 PM",
+      "path": "src/pages/blog/archive-may-9-2021-3-36-pm-0f9a3b27.md",
+      "sourceId": "0f9a3b27a0b74830b3fbd2219bf8c5bb",
+      "pubDate": "2021-05-09",
+      "unlisted": false
+    },
+    {
+      "title": "@May 26, 2021 11:07 PM",
+      "path": "src/pages/blog/archive-may-26-2021-11-07-pm-acf4e825.md",
+      "sourceId": "acf4e8256cc34963afb13f25415b5106",
+      "pubDate": "2021-05-26",
+      "unlisted": false
+    },
+    {
+      "title": "@May 28, 2021 10:47 PM",
+      "path": "src/pages/blog/archive-may-28-2021-10-47-pm-745936d5.md",
+      "sourceId": "745936d527e742be95549e505259cb3c",
+      "pubDate": "2021-05-28",
+      "unlisted": false
+    },
+    {
+      "title": "@May 30, 2021 7:25 PM",
+      "path": "src/pages/blog/archive-may-30-2021-7-25-pm-13d82a9a.md",
+      "sourceId": "13d82a9aab2140e78cb72b3d2e797fa8",
+      "pubDate": "2021-05-30",
+      "unlisted": false
+    },
+    {
+      "title": "@June 1, 2021 8:25 AM",
+      "path": "src/pages/blog/archive-june-1-2021-8-25-am-74e2e644.md",
+      "sourceId": "74e2e6444e7e4adb889e252f87aad229",
+      "pubDate": "2021-06-01",
+      "unlisted": false
+    },
+    {
+      "title": "@June 5, 2021 3:27 PM",
+      "path": "src/pages/blog/archive-june-5-2021-3-27-pm-16a99969.md",
+      "sourceId": "16a9996981eb462baa1d689db58c58e2",
+      "pubDate": "2021-06-05",
+      "unlisted": false
+    },
+    {
+      "title": "@June 6, 2021 5:07 PM",
+      "path": "src/pages/blog/archive-june-6-2021-5-07-pm-49509ea1.md",
+      "sourceId": "49509ea1e8d247bf99e64d1ef4c6cf71",
+      "pubDate": "2021-06-06",
+      "unlisted": false
+    },
+    {
+      "title": "天涯若比邻",
+      "path": "src/pages/blog/archive-note-163d4d90.md",
+      "sourceId": "163d4d90ab13489688896c2c9d0f42df",
+      "pubDate": null,
+      "unlisted": false
+    },
+    {
+      "title": "我喜欢 c++",
+      "path": "src/pages/blog/archive-c-53b81c19.md",
+      "sourceId": "53b81c19ed3a491e8eeaeb133e4de63a",
+      "pubDate": null,
+      "unlisted": false
+    },
+    {
+      "title": "@April 22, 2023",
+      "path": "src/pages/blog/archive-april-22-2023-efbc4c04.md",
+      "sourceId": "efbc4c04a5da4011a64656a67ffe5dfa",
+      "pubDate": "2023-04-22",
+      "unlisted": false
+    },
+    {
+      "title": "@April 26, 2023",
+      "path": "src/pages/blog/archive-april-26-2023-3ce2f48d.md",
+      "sourceId": "3ce2f48d62de47518fe8b03483e6bb55",
+      "pubDate": "2023-04-26",
+      "unlisted": false
+    },
+    {
+      "title": "note1 @May 29, 2021 12:05 AM",
+      "path": "src/pages/blog/archive-note1-may-29-2021-12-05-am-a169b853.md",
+      "sourceId": "a169b8532cb241c385721e95ba864fc0",
+      "pubDate": "2021-05-29",
+      "unlisted": false
+    },
+    {
+      "title": "@September 8, 2021",
+      "path": "src/pages/blog/archive-september-8-2021-45297c83.md",
+      "sourceId": "45297c83d6ce438dbabb7b44892f5ed2",
+      "pubDate": "2021-09-08",
+      "unlisted": false
+    },
+    {
+      "title": "Is the assertion “This statement is false” a proposition?",
+      "path": "src/pages/blog/archive-is-the-assertion-this-statement-is-false-a-proposition-e538f7e8.md",
+      "sourceId": "e538f7e85a0940159f6303a554ee273c",
+      "pubDate": null,
+      "unlisted": false
+    },
+    {
+      "title": "(?=foo)",
+      "path": "src/pages/blog/archive-foo-05b4dbcd.md",
+      "sourceId": "05b4dbcdf0ba46d6b6101ec4d50fee0c",
+      "pubDate": null,
+      "unlisted": true
+    },
+    {
+      "title": "(?!foo)",
+      "path": "src/pages/blog/archive-foo-1b447275.md",
+      "sourceId": "1b44727536a147c68a9e04814ebd6388",
+      "pubDate": null,
+      "unlisted": true
+    },
+    {
+      "title": "(?<=foo)",
+      "path": "src/pages/blog/archive-foo-cf247d5b.md",
+      "sourceId": "cf247d5b49f84437ab8b7b392fe3de3e",
+      "pubDate": null,
+      "unlisted": true
+    },
+    {
+      "title": "(?<!foo)",
+      "path": "src/pages/blog/archive-foo-f27b2acb.md",
+      "sourceId": "f27b2acbda21456880eff7f1bb38f8b7",
+      "pubDate": null,
+      "unlisted": true
+    },
+    {
+      "title": "history",
+      "path": "src/pages/blog/archive-history-444a85f2.md",
+      "sourceId": "444a85f2283e45d8832cef936899d874",
+      "pubDate": null,
+      "unlisted": true
+    }
+  ],
+  "assets": {
+    "Archive blogs/Memory Synchronization/unnamed.jpg": "/archive-assets/896951db2eded380.jpg",
+    "Archive blogs/Regex lookaround/Look around 00580d551fd64c5586374cbafe52e417.csv": "/archive-assets/6b1422ba36b94989.csv",
+    "Archive blogs/Regex lookaround/Look around 00580d551fd64c5586374cbafe52e417_all.csv": "/archive-assets/9bb7b45d4a50d67d.csv",
+    "Archive blogs/我推的孩子39/Untitled.png": "/archive-assets/bdf91dace33affee.png",
+    "Archive blogs/@May 26, 2021 11 07 PM/Untitled.png": "/archive-assets/cf518e22654f88fb.png",
+    "Archive blogs/@May 28, 2021 10 47 PM/Untitled.png": "/archive-assets/7f8834ee7886931d.png",
+    "Archive blogs/@May 30, 2021 7 25 PM/image.jpg": "/archive-assets/b5f7477fdb25638f.jpg"
+  },
+  "rewrittenLocalLinks": 52,
+  "datePolicy": "Only explicit dates in page titles are used; the archive index retains its own August 28, 2025 date. Other dates remain unknown."
+}

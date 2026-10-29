@@ -1,0 +1,5 @@
+﻿symbol,desc,name
+(?=foo),Asserts that what immediately follows the current position in the string is foo,Lookahead
+(?!foo),Asserts that what immediately follows the current position in the string is not foo,Negative Lookahead
+(?<=foo),Asserts that what immediately precedes the current position in the string is foo,Lookbehind
+(?<!foo),Asserts that what immediately precedes the current position in the string is not foo,Negative Lookbehind

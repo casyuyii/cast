@@ -4,28 +4,41 @@ import { topicPath } from "../lib/topics"
 
 interface Props {
   title: string
-  pubDate: Date
+  pubDate?: Date
   topics?: string[]
   headings?: MarkdownHeading[]
+  archived?: boolean
+  sourceUrl?: string
 }
-const { title, pubDate, topics = [], headings = [] } = Astro.props
+const { title, pubDate, topics = [], headings = [], archived = false, sourceUrl } = Astro.props
 const sections = headings.filter((heading) => heading.depth === 2 || heading.depth === 3)
 ---
 
 <article class="reading-page">
   <a class="back-link" href="/">← All writing</a>
   <header class="article-header">
-    <time datetime={pubDate.toISOString()}
-      >{
-        pubDate.toLocaleDateString("en-US", {
-          timeZone: "UTC",
-          month: "long",
-          day: "numeric",
-          year: "numeric",
-        })
-      }</time
-    >
+    {
+      pubDate ? (
+        <time datetime={pubDate.toISOString()}>
+          {pubDate.toLocaleDateString("en-US", {
+            timeZone: "UTC",
+            month: "long",
+            day: "numeric",
+            year: "numeric",
+          })}
+        </time>
+      ) : (
+        <p class="post-date">Original publication date unknown</p>
+      )
+    }
     <h1>{title}</h1>
+    {
+      archived && (
+        <p class="archive-notice">
+          From the early blog archive. {sourceUrl && <a href={sourceUrl}>Original on Notion ↗</a>}
+        </p>
+      )
+    }
     {
       topics.length > 0 && (
         <nav class="article-topics" aria-label="Article topics">

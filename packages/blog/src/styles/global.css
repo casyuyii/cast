@@ -160,6 +160,21 @@ a:focus-visible {
   white-space: nowrap;
   font-variant-numeric: tabular-nums;
 }
+.post-date {
+  color: var(--muted);
+  font-size: 13px;
+  white-space: nowrap;
+}
+.archive-notice {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+  margin-top: 16px;
+}
+.archive-notice a {
+  color: var(--accent);
+  text-decoration: underline;
+}
 .site-footer {
   width: min(720px, calc(100% - 64px));
   margin-inline: auto;
