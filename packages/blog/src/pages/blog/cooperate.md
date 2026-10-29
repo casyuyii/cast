@@ -1,6 +1,7 @@
 ---
 title: "Cooperate"
 pubDate: 2025-09-25
+topics: ["Programming", "Thoughts"]
 ---
 
 多人协作

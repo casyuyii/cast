@@ -2,11 +2,11 @@
 import Basic from "@layouts/basic.astro"
 import Mdcomp from "@components/mdcomp.astro"
 
-const { title, pubDate } = Astro.props
+const { title, pubDate, topics, headings } = Astro.props
 ---
 
-<Basic title={title}>
-  <Mdcomp title={title} pubDate={pubDate}>
+<Basic title={title} reading>
+  <Mdcomp title={title} pubDate={pubDate} topics={topics} headings={headings}>
     <slot />
   </Mdcomp>
 </Basic>

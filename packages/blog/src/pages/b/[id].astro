@@ -19,9 +19,14 @@ const entry = await getEntry("blog", id)
 if (!entry) {
   throw new Error("Entry not found")
 }
-const { Content } = await render(entry)
+const { Content, headings } = await render(entry)
 ---
 
-<Mdlayout title={entry.data.title} pubDate={entry.data.pubDate}>
+<Mdlayout
+  title={entry.data.title}
+  pubDate={entry.data.pubDate}
+  topics={entry.data.topics}
+  headings={headings}
+>
   <Content />
 </Mdlayout>

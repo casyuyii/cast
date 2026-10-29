@@ -1,6 +1,7 @@
 ---
 title: "Fundamental differences between languages"
 pubDate: 2026-04-10
+topics: ["Programming"]
 ---
 
 完整地列一下我涉及过的语言:

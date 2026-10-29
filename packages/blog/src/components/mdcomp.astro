@@ -1,9 +1,118 @@
 ---
-const { title, pubDate } = Astro.props
+import type { MarkdownHeading } from "astro"
+import { topicPath } from "../lib/topics"
+
+interface Props {
+  title: string
+  pubDate: Date
+  topics?: string[]
+  headings?: MarkdownHeading[]
+}
+const { title, pubDate, topics = [], headings = [] } = Astro.props
+const sections = headings.filter((heading) => heading.depth === 2 || heading.depth === 3)
 ---
 
-<article class="prose lg:prose-base xl:prose-lg max-w-none py-4 px-2">
-  <h1>{title}</h1>
-  <p>{pubDate.toLocaleDateString()}</p>
-  <slot />
+<article class="reading-page">
+  <a class="back-link" href="/">← All writing</a>
+  <header class="article-header">
+    <time datetime={pubDate.toISOString()}
+      >{
+        pubDate.toLocaleDateString("en-US", {
+          timeZone: "UTC",
+          month: "long",
+          day: "numeric",
+          year: "numeric",
+        })
+      }</time
+    >
+    <h1>{title}</h1>
+    {
+      topics.length > 0 && (
+        <nav class="article-topics" aria-label="Article topics">
+          {topics.map((topic) => (
+            <a href={topicPath(topic)}>{topic}</a>
+          ))}
+        </nav>
+      )
+    }
+  </header>
+  <div class:list={["article-content-layout", { "has-toc": sections.length > 0 }]}>
+    {
+      sections.length > 0 && (
+        <aside class="article-toc">
+          <details open>
+            <summary>On this page</summary>
+            <nav aria-label="Table of contents">
+              <ol>
+                {sections.map((heading) => (
+                  <li class:list={{ "toc-nested": heading.depth === 3 }}>
+                    <a href={`#${heading.slug}`}>{heading.text}</a>
+                  </li>
+                ))}
+              </ol>
+            </nav>
+          </details>
+        </aside>
+      )
+    }
+    <div class="prose article-body">
+      <slot />
+    </div>
+  </div>
 </article>
+
+<script>
+  for (const heading of document.querySelectorAll<HTMLElement>(
+    ".article-body h2[id], .article-body h3[id], .article-body h4[id]"
+  )) {
+    const link = document.createElement("a")
+    link.className = "heading-anchor"
+    link.href = `#${heading.id}`
+    link.textContent = "#"
+    link.setAttribute("aria-label", `Link to ${heading.textContent}`)
+    heading.append(link)
+  }
+
+  for (const pre of document.querySelectorAll<HTMLPreElement>(".article-body pre")) {
+    const code = pre.querySelector("code")
+    if (!code) continue
+    const wrapper = document.createElement("div")
+    wrapper.className = "code-block"
+    pre.before(wrapper)
+    wrapper.append(pre)
+    const button = document.createElement("button")
+    button.type = "button"
+    button.className = "copy-code"
+    button.textContent = "Copy"
+    button.setAttribute("aria-label", "Copy code block")
+    const status = document.createElement("span")
+    status.className = "sr-only"
+    status.setAttribute("role", "status")
+    wrapper.append(button, status)
+    let resetTimer: ReturnType<typeof setTimeout>
+    button.addEventListener("click", async () => {
+      clearTimeout(resetTimer)
+      try {
+        await navigator.clipboard.writeText(code.textContent ?? "")
+        button.textContent = "Copied!"
+        status.textContent = "Code copied to clipboard."
+      } catch {
+        button.textContent = "Try again"
+        status.textContent = "Could not copy. Select the code and copy it manually."
+      }
+      resetTimer = setTimeout(() => {
+        button.textContent = "Copy"
+        status.textContent = ""
+      }, 2500)
+    })
+  }
+
+  // Keep the mobile index compact; without JavaScript it remains expanded and usable.
+  const compactScreen = window.matchMedia("(max-width: 1100px)")
+  const toc = document.querySelector<HTMLDetailsElement>(".article-toc details")
+  const syncToc = () => {
+    if (toc) toc.open = !compactScreen.matches
+  }
+  syncToc()
+  compactScreen.addEventListener("change", syncToc)
+</script>

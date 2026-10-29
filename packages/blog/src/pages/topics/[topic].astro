@@ -1,0 +1,24 @@
+---
+import { getCollection } from "astro:content"
+import Basic from "@layouts/basic.astro"
+import PostArchive from "@components/post-archive.astro"
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog")
+  const topics = [...new Set(posts.flatMap((post) => post.data.topics))]
+  return topics.map((topic) => ({
+    params: { topic: topic.toLowerCase().replace(/\s+/g, "-") },
+    props: { topic },
+  }))
+}
+const { topic } = Astro.props
+---
+
+<Basic title={`${topic} — Casyu.me`}>
+  <header class="home-intro topic-intro">
+    <p class="eyebrow">Explore a topic</p>
+    <h1>{topic}<span>.</span></h1>
+    <p class="intro-description">Notes from this corner of the notebook.</p>
+  </header>
+  <PostArchive activeTopic={topic} />
+</Basic>

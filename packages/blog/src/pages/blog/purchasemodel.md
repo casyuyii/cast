@@ -1,6 +1,7 @@
 ---
 title: "How AI change purchase model"
 pubDate: 2025-12-23
+topics: ["AI", "Thoughts"]
 ---
 
 刷职位的时候看到了一个工作描述, 其中要求应聘者描述 AI 未来如何改变内容消费形态  

@@ -1,6 +1,7 @@
 ---
 title: "Jotting(Behaviour)"
 pubDate: 2026-04-27
+topics: ["Thoughts"]
 ---
 
 早期我曾读过《快思考和慢思考》  

@@ -1,6 +1,7 @@
 ---
 title: "Thoughts on creation"
 pubDate: 2026-03-12
+topics: ["Thoughts"]
 ---
 
 最近经历了一些事让我直视了创作这件事  

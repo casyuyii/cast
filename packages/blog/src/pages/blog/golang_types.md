@@ -1,6 +1,7 @@
 ---
 title: "Golang Types"
 pubDate: 2025-12-29
+topics: ["Go", "Programming"]
 ---
 
 Golang Runtime 有非常多值得深思的技术, 而要了解这些技术, 最初的步骤之一应该就是理解其中的类型定义了  

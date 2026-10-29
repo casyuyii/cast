@@ -1,7 +1,10 @@
 ---
 title: "Golang slice"
 pubDate: 2026-01-05
+topics: ["Go", "Programming"]
 ---
+
+## Slice structure
 
 **slice** 的实现较为简单
 [branch: 1.25](https://github.com/golang/go/blob/release-branch.go1.25/src/runtime/slice.go)
@@ -37,6 +40,8 @@ type notInHeapSlice struct {
 
 基础字段 pointer + len + cap  
 非堆(栈)中的 slice 没有 write barriers, 不参与 GC. 理论性能更好
+
+## Copying a slice
 
 ```go
 
@@ -107,6 +112,8 @@ func makeslicecopy(et *_type, tolen int, fromlen int, from unsafe.Pointer) unsaf
 
 slice 拷贝, 一句话总结就是带检查的内存拷贝
 
+## Creating a slice
+
 ```go
 // makeslice should be an internal detail,
 // but widely used packages access it using linkname.
@@ -151,6 +158,8 @@ func makeslice64(et *_type, len64, cap64 int64) unsafe.Pointer {
 ```
 
 slice 的创建, 分配的内存并不会补齐到 2 的 n 次方. 后续可以在 **roundupsize** 中看到, 小份的内存根据申请大小分成 67 类, 每一类都有预定义的大小
+
+## Growing capacity
 
 ```go
 // growslice allocates new backing store for a slice.
@@ -348,6 +357,8 @@ func nextslicecap(newLen, oldCap int) int {
 根据当前容量(元素数量). 小于 256 扩容 2倍, 大于 256 扩容约为 1.25 倍  
 后续再 roundupsize(字节数), 最终的大小才是扩容后的大小
 
+## Memory allocation
+
 ```go
 func roundupsize(size uintptr, noscan bool) (reqSize uintptr) {
 	reqSize = size
@@ -381,6 +392,8 @@ roundupsize 并非只用 slice 用到, 所以这个函数并非 slice.go 文件�
 1. 小块内存(小于 MinSizeForMallocHeader 512). GC 使用这类内存时, 用 mspan 的 bitmap 确定哪块内存有指针
 2. 中等大小内存(大于 MinSizeForMallocHeader, 小于 maxSmallSize: 32768). 这类内存, 使用 bitmap 会浪费空间, 将类型等相关信息添加到 header 中
 3. 大块内存(大于 maxSmallSize: 32768). 这类内存每个 mspan 只会存储一个, 有专用的数据放在 mspan 中
+
+## Runtime helpers
 
 ```go
 

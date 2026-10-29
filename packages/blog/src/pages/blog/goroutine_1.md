@@ -1,6 +1,7 @@
 ---
 title: "Goroutine (1)"
 pubDate: 2026-03-08
+topics: ["Go", "Programming"]
 ---
 
 ```go

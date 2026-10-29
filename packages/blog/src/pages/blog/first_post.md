@@ -1,6 +1,7 @@
 ---
 title: "First Blog Post On New Framework"
 pubDate: 2025-09-22
+topics: ["Thoughts", "AI"]
 ---
 
 新的 Blog  

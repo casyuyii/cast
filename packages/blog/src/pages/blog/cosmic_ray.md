@@ -1,6 +1,7 @@
 ---
 title: "Cosmic Ray Bit Flipping"
 pubDate: 2025-11-07
+topics: ["Programming"]
 ---
 
 事情要源自 MongoDB 中的 Primary-Key  

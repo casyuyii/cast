@@ -1,0 +1,58 @@
+---
+import { getCollection } from "astro:content"
+import Divider from "@components/divider.astro"
+import { topicPath } from "../lib/topics"
+
+interface Props {
+  activeTopic?: string
+}
+const { activeTopic } = Astro.props
+const posts = (await getCollection("blog")).sort(
+  (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
+)
+const topics = [...new Set(posts.flatMap((post) => post.data.topics))].sort()
+const filtered = activeTopic
+  ? posts.filter((post) => post.data.topics.includes(activeTopic))
+  : posts
+const years = [...new Set(filtered.map((post) => post.data.pubDate.getUTCFullYear()))]
+---
+
+<nav class="topic-filters" aria-label="Filter writing by topic">
+  <a href="/" aria-current={!activeTopic ? "page" : undefined}
+    >All writing <span>{posts.length}</span></a
+  >
+  {
+    topics.map((topic) => (
+      <a href={topicPath(topic)} aria-current={activeTopic === topic ? "page" : undefined}>
+        {topic} <span>{posts.filter((post) => post.data.topics.includes(topic)).length}</span>
+      </a>
+    ))
+  }
+</nav>
+<div class="post-archive">
+  {
+    years.map((year) => (
+      <section class="year-group" aria-label={`Posts from ${year}`}>
+        <Divider tag={year} />
+        <ul class="post-list">
+          {filtered
+            .filter((post) => post.data.pubDate.getUTCFullYear() === year)
+            .map((post) => (
+              <li>
+                <a class="post-link" href={"/b/" + post.id}>
+                  <span class="post-title">{post.data.title}</span>
+                  <time datetime={post.data.pubDate.toISOString()}>
+                    {post.data.pubDate.toLocaleDateString("en-US", {
+                      timeZone: "UTC",
+                      month: "short",
+                      day: "numeric",
+                    })}
+                  </time>
+                </a>
+              </li>
+            ))}
+        </ul>
+      </section>
+    ))
+  }
+</div>
