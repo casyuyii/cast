@@ -5,5 +5,9 @@ export default function GetTextLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  return <Suspense fallback={<div>Loading...</div>}>{children}</Suspense>
+  return (
+    <Suspense fallback={<p className="text-muted-foreground text-sm">Loading…</p>}>
+      {children}
+    </Suspense>
+  )
 }

@@ -2,68 +2,114 @@
 
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
-import { Textarea } from "@/components/ui/textarea"
 import { useSearchParams } from "next/navigation"
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
+import { Check, Copy, Loader2 } from "lucide-react"
+import PageHeader from "@/components/custom/page-header"
+import ExpiryBadge from "@/components/custom/expiry-badge"
+import { CODE_LENGTH, getText, normalizeCode } from "@/lib/text-api"
 
-const GET_TEXT_API = process.env.NEXT_PUBLIC_BACK_END_API_URL + "/api/text?code="
-
-export default function ShareText() {
+export default function GetText() {
   const searchParams = useSearchParams()
-  const initialCode = searchParams.get("code") ?? ""
+  const initialCode = normalizeCode(searchParams.get("code") ?? "")
   const [code, setCode] = useState(initialCode)
-  const [text, setText] = useState("")
+  const [result, setResult] = useState<{ text: string; expiresAt: string } | null>(null)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState("")
+  const [copied, setCopied] = useState(false)
 
-  const fetchText = (codeToFetch: string) => {
-    if (codeToFetch === "") return
-
-    fetch(GET_TEXT_API + codeToFetch, {
-      method: "GET",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.success && data.text) {
-          setText(data.text)
-        } else {
-          console.error("Failed to get text: ", data)
-        }
-      })
-      .catch((err) => {
-        console.error("Failed to get text(unknown error): ", err)
-      })
-  }
-
-  const OnClickGet = () => {
-    fetchText(code)
-  }
+  const fetchText = useCallback(async (codeToFetch: string) => {
+    if (codeToFetch.length !== CODE_LENGTH) return
+    setLoading(true)
+    setError("")
+    setResult(null)
+    try {
+      setResult(await getText(codeToFetch))
+    } catch (err) {
+      console.error("Failed to get text: ", err)
+      setError((err as Error).message)
+    } finally {
+      setLoading(false)
+    }
+  }, [])
 
   useEffect(() => {
     if (initialCode) {
       fetchText(initialCode)
     }
-  }, [initialCode])
+  }, [initialCode, fetchText])
+
+  const onCodeChange = (value: string) => {
+    const next = normalizeCode(value).slice(0, CODE_LENGTH)
+    setCode(next)
+    // Load as soon as a full code is typed or a share link is pasted
+    if (next.length === CODE_LENGTH && next !== code) fetchText(next)
+  }
+
+  const copyText = async () => {
+    if (!result) return
+    try {
+      await navigator.clipboard.writeText(result.text)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 3000)
+    } catch (err) {
+      console.error("Failed to copy:", err)
+    }
+  }
 
   return (
-    <div>
-      <div className="flex w-full items-center gap-2 p-2">
-        <Textarea
-          placeholder="Enter code to get text in the box above, then click get to load the text..."
-          className="h-32"
-          value={text}
-          readOnly
-        />
-      </div>
-      <div className="flex w-full max-w-sm items-center gap-2 p-2">
+    <>
+      <PageHeader eyebrow="Text / Get" title="Retrieve a snippet.">
+        Enter the 6-character code you were given, or paste the share link.
+      </PageHeader>
+
+      <form
+        className="rise flex max-w-md gap-2"
+        style={{ "--d": "100ms" } as React.CSSProperties}
+        onSubmit={(e) => {
+          e.preventDefault()
+          fetchText(code)
+        }}
+      >
         <Input
-          type="text"
-          placeholder="Enter code to get text"
-          defaultValue={code}
-          onChange={(e) => setCode(e.target.value)}
+          className="bg-card h-11 font-mono text-lg tracking-[0.3em] uppercase placeholder:text-sm placeholder:tracking-normal placeholder:normal-case"
+          placeholder="e.g. 7KQ4MZ"
+          value={code}
+          onChange={(e) => onCodeChange(e.target.value)}
+          autoFocus={!initialCode}
+          autoComplete="off"
+          spellCheck={false}
         />
-        <Button type="submit" variant="outline" onClick={OnClickGet}>
+        <Button
+          type="submit"
+          className="h-11 px-5"
+          disabled={loading || code.length !== CODE_LENGTH}
+        >
+          {loading && <Loader2 className="animate-spin" />}
           Get
         </Button>
-      </div>
-    </div>
+      </form>
+
+      {error && (
+        <p role="alert" className="text-destructive mt-3 text-sm">
+          {error}
+        </p>
+      )}
+
+      {result && (
+        <div className="rise bg-card mt-8 rounded-xl border shadow-xs">
+          <div className="flex items-center justify-between gap-3 border-b px-5 py-2.5">
+            <ExpiryBadge expiresAt={result.expiresAt} />
+            <Button variant="ghost" size="sm" onClick={copyText}>
+              {copied ? <Check /> : <Copy />}
+              {copied ? "Copied" : "Copy"}
+            </Button>
+          </div>
+          <pre className="p-5 font-sans text-sm leading-relaxed break-words whitespace-pre-wrap">
+            {result.text}
+          </pre>
+        </div>
+      )}
+    </>
   )
 }
